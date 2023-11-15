@@ -1,30 +1,31 @@
-import pandas as pd
+import pandas as pd #import library pandas
 
-def iheadache():
-    data_pasien = []
+def iheadache(): #function 
+    data_pasien = [] #list
 
-    while True:
+    while True: #perulangan
         #Wellcome Text
         print("+=================================================+")
-        print("{:<5}{:^10}{:>6}".format('|','📋Selamat Datang di Aplikasi Iheadache📋','|'))
-        print("{:<2}{:^4}{:>2}".format('|','🩺Aplikasi Diagnosa Penyakit Kepala Sederhana🩺','|'))
-        print("+=================================================+")
+        print("{:<5}{:^10}{:>6}".format('|','📋Selamat Datang di Aplikasi Iheadache📋','|')) #cetak string
+        print("{:<2}{:^4}{:>2}".format('|','🩺Aplikasi Diagnosa Penyakit Kepala Sederhana🩺','|')) #cetak string
+        print("+=================================================+\v")
 
         #input data pasien
-        namaPasien = input("Masukan Nama Pasien : ")
-        umurPasien = input("Masukan Umur Pasien : ")
-        
-        #diagnosa penyakit & pertanyaan gejalanya
-        gejalaSakit = []
+        namaPasien = input("{:<3}{:^10}".format('🥼','Masukan Nama Pasien : ')) #var inputan nama pasien
+        umurPasien = input("{:<5}{:^10}".format('⚕️','Masukan Usia Pasien : ')) #var inputan umur pasien
+        print('=' * 51) 
 
-        gejala = input("Apakah anda mengalami pusing atau sakit kepala? (y/n)").lower()
-        if gejala == "y":
-            gejalaSakit.append("Pusing")
+        #diagnosa penyakit & pertanyaan gejalanya
+        gejalaSakit = [] #list kosong untuk menyimpan gejala penyakit seperti pusing,kepala berdenyut, dll
+
+        gejala = input("Apakah anda mengalami pusing atau sakit kepala? (y/n)").lower() #fungsi lower untuk merubah segala macam inputan menjadi huruf kecil 
+        if gejala == "y": #percabangan
+            gejalaSakit.append("Pusing")#menggunakan function append untuk menambahkan anggota kedalam list gejala sakit
 
         #gejala migrain
         gejala = input("Apakah anda mengalami kepala berdenyut-denyut? (y/n)").lower()
         if gejala == "y":
-            gejalaSakit.append("Kepala Berdenyut")
+            gejalaSakit.append("Kepala Berdenyut")#menggunakan function append untuk menambahkan anggota kedalam list gejala sakit
 
         gejala = input("Apakah anda mengalami sensitif terhadap cahaya dan bunyi? (y/n)").lower()
         if gejala == "y":
@@ -68,8 +69,8 @@ def iheadache():
         #hasil dari diagnosa penyakit & mengelola jawaban dari pertanyaan
         hasilDiagnosis = ""
 
-        if "Pusing" in gejalaSakit:
-            if "Kepala Berdenyut" in gejalaSakit or "Sensitif Cahaya" in gejalaSakit:
+        if "Pusing" in gejalaSakit: # menggunakan percabangan if, operator(keanggotaan) in jika suatu var ditemukan atau termasuk didalam list atau data
+            if "Kepala Berdenyut" in gejalaSakit or "Sensitif Cahaya" in gejalaSakit: # penggunaan operator(logika) or pendefinisian atau 
                 hasilDiagnosis = "Migrain"
             elif "Pandangan Kabur" in gejalaSakit or "Kepala Tegang" in gejalaSakit or "Mual" in gejalaSakit:
                 hasilDiagnosis = "Hipertensi"
@@ -82,8 +83,8 @@ def iheadache():
 
         #print atau output data
         print("\n---- Hasil Diagnosa Penyakit Iheadache ----")
-        print("Nama Pasien : ", namaPasien)
-        print("Umur Pasien : ", umurPasien)
+        print("Nama Pasien : ", namaPasien) #menggabungkan string
+        print("Umur Pasien : "+ str(umurPasien)) #merubah inputan int menjadi string menggunakan str()
         print("Hasil Diagnosa : ", hasilDiagnosis)
 
         #saran dari masing masing diagnosa atau penyakit
@@ -120,20 +121,20 @@ def iheadache():
         prosesDiagnosa = input("\nApakah anda ingin melanjutkan diagnosa lagi ? (y/n)").lower()
         if prosesDiagnosa != 'y':
             print("👋🏼Terimakasih semoga lekas sembuh👋🏼")
-            break
+            break #statement untuk memaksa program keluar dari blok looping
         
         #jika melanjutkan proses diagnosa maka hasil diagnosa sebelumnya akan tercatat
         data_pasien.append({"Nama Pasien": namaPasien, "Usia Pasien": umurPasien, "Hasil Diagnosa": hasilDiagnosis})
 
         #Data frame pandas
-        hasilData_pasien = pd.DataFrame(data_pasien)
+        hasilData_pasien = pd.DataFrame(data_pasien) # format data pandas data frame
 
         #menampilkan data frame
         print("\n---- Data Pasien ----")
-        print(hasilData_pasien)
+        print(hasilData_pasien) # mencetak hasil dari variable data pandas
 
-if __name__ == "__main__":
-    iheadache()
+if __name__ == "__main__": # menjalankan skrip level teratas
+    iheadache() #memanggil function
 
 
                 
