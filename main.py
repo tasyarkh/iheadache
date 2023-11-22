@@ -1,14 +1,15 @@
 import pandas as pd #import library pandas
+from view.wellcometxt import welcome_txt
 
-def iheadache(): #function 
+def iheadache(): # mendefinisikan function iheadache atau main function
+    """Fungsi utama program""" 
+
     data_pasien = [] #list
 
-    while True: #perulangan
+    while True: #perulangan while
+        
         #Wellcome Text
-        print("+=================================================+")
-        print("{:<5}{:^10}{:>6}".format('|','📋Selamat Datang di Aplikasi Iheadache📋','|')) #cetak string
-        print("{:<2}{:^4}{:>2}".format('|','🩺Aplikasi Diagnosa Penyakit Kepala Sederhana🩺','|')) #cetak string
-        print("+=================================================+\v")
+        welcome_txt()
 
         #input data pasien
         namaPasien = input("{:<3}{:^10}".format('🥼','Masukan Nama Pasien : ')) #var inputan nama pasien
@@ -64,10 +65,11 @@ def iheadache(): #function
 
 
         #jika memiliki riwayat penyakit berat
+        #membuat var riwayat penyakit
         riwayatPenyakit = input("Apakah anda memiliki riwayat penyakit berat sebelumnya ? (y/n)").lower()
 
         #hasil dari diagnosa penyakit & mengelola jawaban dari pertanyaan
-        hasilDiagnosis = ""
+        hasilDiagnosis = []
 
         if "Pusing" in gejalaSakit: # menggunakan percabangan if, operator(keanggotaan) in jika suatu var ditemukan atau termasuk didalam list atau data
             if "Kepala Berdenyut" in gejalaSakit or "Sensitif Cahaya" in gejalaSakit: # penggunaan operator(logika) or pendefinisian atau 
