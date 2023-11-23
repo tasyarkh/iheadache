@@ -1,5 +1,10 @@
 import pandas as pd #import library pandas
 from view.wellcometxt import welcome_txt
+from colorama import init, Fore
+from sys import stdout
+from view.banner import banners
+from view.colors import colors
+
 
 def iheadache(): # mendefinisikan function iheadache atau main function
     """Fungsi utama program""" 
@@ -12,8 +17,8 @@ def iheadache(): # mendefinisikan function iheadache atau main function
         welcome_txt()
 
         #input data pasien
-        namaPasien = input("{:<3}{:^10}".format('🥼','Masukan Nama Pasien : ')) #var inputan nama pasien
-        umurPasien = input("{:<5}{:^10}".format('⚕️','Masukan Usia Pasien : ')) #var inputan umur pasien
+        namaPasien = input("{:<3}{:^10}".format('🥼',f'{colors.CBLUE2}{colors.RED}Masukan Nama Pasien :  {colors.ENDC}')) #var inputan nama pasien 
+        umurPasien = input("{:<5}{:^10}".format('⚕️',f'{colors.CBLUE2}{colors.RED}Masukan Usia Pasien : {colors.ENDC}')) #var inputan umur pasien
         print('=' * 51) 
 
         #diagnosa penyakit & pertanyaan gejalanya
