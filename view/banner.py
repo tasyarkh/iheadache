@@ -1,7 +1,8 @@
 from colorama import init, Fore
 from sys import stdout
 import time
-from view import clear
+from view.clear import clr
+from view.colors import colors
 
 FG = Fore.GREEN
 FR = Fore.RED
@@ -10,15 +11,8 @@ FY = Fore.YELLOW
 FC = Fore.CYAN
 init(autoreset=True)
 
-class colors:
-    CRED2 = Fore.RED
-    CBLUE2 = Fore.BLUE
-    ENDC = "\033[0m"
-    RED = '\033[91m'
-    GREEN = '\033[92m'
-
 def banners():
-    clear()
+    clr()
     stdout.write("                                                                                         \n")
     stdout.write(colors.RED + "  ____  _                                   \n")
     stdout.write(colors.RED + " |  _ \\(_) __ _  __ _ _ __   ___  ___  __ _ \n")

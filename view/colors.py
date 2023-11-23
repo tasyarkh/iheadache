@@ -1,5 +1,5 @@
 from colorama import init, Fore
-
+ 
 class colors:
     CRED2 = Fore.RED
     CBLUE2 = Fore.BLUE

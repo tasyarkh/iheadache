@@ -1,6 +1,6 @@
 import os
 
-def clear():
+def clr():
     if os.name == 'nt':
         _ = os.system('cls')
     else:
