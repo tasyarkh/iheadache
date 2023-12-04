@@ -12,14 +12,28 @@ def iheadache(): # mendefinisikan function iheadache atau main function
 
     banners()
 
-    while True: #perulangan while
+    while True: #perulangan while jika kondisi true maka program akan dijalankan
         
         #Wellcome Text
         welcome_txt()
 
+        class DataPasien :
+            def __init__(self, namaPasien, umurPasien):
+                self.nmPasien = namaPasien
+                self.umPasien = umurPasien
+            def dn(self):
+                return(self.nmPasien)
+            def du(self):
+                return(self.umPasien)
+                
         #input data pasien
-        namaPasien = input("{:<3}{:^10}".format('🥼',f'{Colors.CBLUE2}{Colors.RED}Masukan Nama Pasien :  {Colors.ENDC}')) #var inputan nama pasien 
-        umurPasien = input("{:<5}{:^10}".format('⚕️',f'{Colors.CBLUE2}{Colors.RED}Masukan Usia Pasien : {Colors.ENDC}')) #var inputan umur pasien
+        nmPasien = input("{:<3}{:^10}".format('🥼',f'{Colors.CBLUE2}{Colors.RED}Masukan Nama Pasien :  {Colors.ENDC}')) #var inputan nama pasien 
+        umPasien = input("{:<5}{:^10}".format('⚕️',f'{Colors.CBLUE2}{Colors.RED}Masukan Usia Pasien : {Colors.ENDC}')) #var inputan umur pasien
+        dp = DataPasien(nmPasien,umPasien)
+
+        datn = dp.dn()
+        datu = dp.du()
+
         print('=' * 51) 
 
         #diagnosa penyakit & pertanyaan gejalanya
@@ -30,7 +44,7 @@ def iheadache(): # mendefinisikan function iheadache atau main function
             gejalaSakit.append("Pusing")#menggunakan function append untuk menambahkan anggota kedalam list gejala sakit
         else:
             print("Maaf mungkin anda tidak mengalami sakit kepala ringan, silahkan cek lebih lanjut kerumah sakit")
-        break
+            break
         #Gejala migrain
         gejala = input(f"{Colors.CBLUE2}Apakah anda mengalami kepala berdenyut-denyut? (y/n){Colors.ENDC}").lower()
         if gejala == "y":
@@ -93,8 +107,8 @@ def iheadache(): # mendefinisikan function iheadache atau main function
 
         #print atau output data
         print(f"\n{Colors.GREEN}---- Hasil Diagnosa Penyakit Iheadache ----{Colors.ENDC}")
-        print("Nama Pasien : ", namaPasien) #menggabungkan string
-        print("Umur Pasien : "+ str(umurPasien)) #merubah inputan int menjadi string menggunakan str()
+        print(f"Nama Pasien : {datn}") #menggabungkan string
+        print(f"Umur Pasien : {datu}") #merubah inputan int menjadi string menggunakan str()
         print("Hasil Diagnosa : ", hasilDiagnosis)
 
         #saran dari masing masing diagnosa atau penyakit
@@ -134,7 +148,7 @@ def iheadache(): # mendefinisikan function iheadache atau main function
             break #statement untuk memaksa program keluar dari blok looping
         
         #jika melanjutkan proses diagnosa maka hasil diagnosa sebelumnya akan tercatat
-        data_pasien.append({"Nama Pasien": namaPasien, "Usia Pasien": umurPasien, "Hasil Diagnosa": hasilDiagnosis})
+        data_pasien.append({"Nama Pasien": nmPasien, "Usia Pasien": umPasien, "Hasil Diagnosa": hasilDiagnosis})
 
         #Data frame pandas
         hasilData_pasien = pd.DataFrame(data_pasien) # format data pandas data frame
@@ -143,7 +157,7 @@ def iheadache(): # mendefinisikan function iheadache atau main function
         print(f"{Colors.CBLUE2}\n---- Data Pasien ----{Colors.ENDC}")
         print(hasilData_pasien) # mencetak hasil dari variable data pandas
 
-if __name__ == "__main__": # menjalankan skrip level teratas
+if __name__ == "__main__": # menjalankan skrip level teratas atau agar file pertama di jalankan di file main
     iheadache() #memanggil function
 
 
