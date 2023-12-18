@@ -1,7 +1,5 @@
 from colorama import init, Fore
 from sys import stdout
-import time
-from view.clear import clr
 from view.colors import Colors
 
 FG = Fore.GREEN
@@ -12,7 +10,7 @@ FC = Fore.CYAN
 init(autoreset=True)
 
 def banners():
-    clr()
+
     stdout.write("                                                                                         \n")
     stdout.write(Colors.RED + "  ____  _                                   \n")
     stdout.write(Colors.RED + " |  _ \\(_) __ _  __ _ _ __   ___  ___  __ _ \n")
